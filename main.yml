@@ -20,7 +20,7 @@ jobs:
       - name: Generate YouTube Music Widget
         uses: daeun503/profile-music-widget@v1
         with:
-          playlist_id: PLRcRQbPj9KSQ2xYKUm2AP7TBDJYsDiM3z
+          playlist_id: PLRcRQbPj9KSQ2xYKUm2AP7TBDJYsDiM3z6th
           theme: default
       - name: Commit and push output
         uses: crazy-max/ghaction-github-pages@v4
