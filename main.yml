@@ -1,0 +1,29 @@
+USERNAME/
+├── README.md
+└── .github/
+    └── workflows/
+        └── main.yml
+        name: Build YouTube Music Widget
+on:
+  schedule:
+    - cron: "0 */24 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Generate YouTube Music Widget
+        uses: daeun503/profile-music-widget@v1
+        with:
+          playlist_id: PLRcRQbPj9KSQ2xYKUm2AP7TBDJYsDiM3z
+          theme: default
+      - name: Commit and push output
+        uses: crazy-max/ghaction-github-pages@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
